@@ -1,0 +1,53 @@
+<div class='card'>
+    <div class='card-header'>
+      {{pageTitle}}
+    </div>
+    <div class='card-body'>
+      <div class='row'>
+        <div class='col-md-2'>Filter by:</div>
+        <div class='col-md-4'>
+          <input type='text' [(ngModel)]="listFilter">
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-md-6'>
+          <h4> Filtered by: {{listFilter}}</h4>
+        </div>
+      </div>
+      <div class='table-responsive'>
+        <table class='table'
+               *ngIf='items && items.length'>
+   
+          <thead>
+            <tr>
+              <th>
+
+              </th>
+              <th>Item</th>
+              <th>Room</th>
+              <th>Location</th>
+              <th>Units</th>
+              <th>ratings</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let item of filteredItems'>
+              <td>
+  
+              </td>
+              <td>
+ 
+                  {{ item.itemName }}
+              </td>
+              <td>{{ item.room | lowercase  }}</td>
+              <td>{{ item.place }}</td>
+              <td>{{ item.quantity  }}</td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
