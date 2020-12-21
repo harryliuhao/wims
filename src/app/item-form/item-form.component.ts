@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import {Iitem} from './item'
-import { ViewEncapsulation } from '@angular/core';
+
 
 
 @Component({
   selector: 'app-item-form',
-  encapsulation: ViewEncapsulation.None,
   templateUrl: './item-form.component.html',
   styleUrls: ['./item-form.component.css']
 })
 export class ItemFormComponent implements OnInit {
-  pageTitle: string='Item Locations';
-  _listFilter: string ;
+  pageTitle: string='Items:';
+  _listFilter='';
   
 
   get listFilter(): string {
@@ -33,7 +32,8 @@ export class ItemFormComponent implements OnInit {
     "place": "closet",
     "updateDate": "March 19, 2020",
     "description": "bought at Costco",
-    "quantity": 2
+    "quantity": 2,
+    "starRating": 3
   },
   {
     "itemId": 2,
@@ -42,7 +42,8 @@ export class ItemFormComponent implements OnInit {
     "place": "ledder",
     "updateDate": "March 19, 2020",
     "description": "used",
-    "quantity": 3
+    "quantity": 3,
+    "starRating": 4
   },
     {
     "itemId": 3,
@@ -51,7 +52,8 @@ export class ItemFormComponent implements OnInit {
     "place": "board",
     "updateDate": "October 19, 2020",
     "description": "new",
-    "quantity": 1
+    "quantity": 1,
+    "starRating": 5
   },
     {
     "itemId": 4,
@@ -60,7 +62,8 @@ export class ItemFormComponent implements OnInit {
     "place": "board",
     "updateDate": "October 19, 2020",
     "description": "new",
-    "quantity": 2
+    "quantity": 2,
+    "starRating": 2
   }
   ];
 
@@ -75,8 +78,13 @@ export class ItemFormComponent implements OnInit {
     return this.items.filter((item: Iitem) => item.itemName.toLocaleLowerCase().indexOf(filterBy)!==-1);
   }
 
+  onRatingClicked(message: string): void {
+    console.log(message);
+    this.pageTitle='Item List: '+message;
+  }
   ngOnInit(): void {
-    console.log("Oninit is on")
+    console.log("Oninit is on");
+
   }
 
 }

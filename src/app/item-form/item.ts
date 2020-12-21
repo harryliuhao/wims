@@ -6,6 +6,7 @@ export interface Iitem {
   updateDate: string;
   description: string;
   quantity: number;
+  starRating: number;
 
 
 }

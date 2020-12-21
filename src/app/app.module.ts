@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ItemFormComponent } from './item-form/item-form.component';
+import { StarComponent } from './shared/star.component';
 
 @NgModule({
   imports:      [ 
@@ -22,7 +23,9 @@ import { ItemFormComponent } from './item-form/item-form.component';
   declarations: [ 
     AppComponent, 
     TopBarComponent, 
-    ItemFormComponent ],
+    ItemFormComponent,
+    StarComponent,
+   ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

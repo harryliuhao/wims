@@ -43,6 +43,7 @@
               <td>{{ item.place }}</td>
               <td>{{ item.quantity  }}</td>
               <td>
+                <pm-star [rating]='item.starRating' (ratingClicked)='onRatingClicked($event)'></pm-star>
               </td>
             </tr>
           </tbody>
