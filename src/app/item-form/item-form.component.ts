@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Iitem} from './item'
-
+import {Iitem} from './item';
+import {ItemService} from './item.service';
 
 
 @Component({
@@ -23,53 +23,10 @@ export class ItemFormComponent implements OnInit {
   }
 
   
-  filteredItems: Iitem[];
-  items: Iitem[]=[
-    {
-    "itemId": 1,
-    "itemName": "Leather Gloves",
-    "room": "basement",
-    "place": "closet",
-    "updateDate": "March 19, 2020",
-    "description": "bought at Costco",
-    "quantity": 2,
-    "starRating": 3
-  },
-  {
-    "itemId": 2,
-    "itemName": "fiber towels",
-    "room": "basement",
-    "place": "ledder",
-    "updateDate": "March 19, 2020",
-    "description": "used",
-    "quantity": 3,
-    "starRating": 4
-  },
-    {
-    "itemId": 3,
-    "itemName": "head lamp",
-    "room": "garage",
-    "place": "board",
-    "updateDate": "October 19, 2020",
-    "description": "new",
-    "quantity": 1,
-    "starRating": 5
-  },
-    {
-    "itemId": 4,
-    "itemName": "head lamp",
-    "room": "basement",
-    "place": "board",
-    "updateDate": "October 19, 2020",
-    "description": "new",
-    "quantity": 2,
-    "starRating": 2
-  }
-  ];
+  filteredItems: Iitem[]=[];
+  items: Iitem[]=[];
 
-  constructor() {
-    this.filteredItems=this.items;
-    this.listFilter='glove';
+  constructor(private itemService: ItemService) {
    }
   
    
@@ -83,7 +40,8 @@ export class ItemFormComponent implements OnInit {
     this.pageTitle='Item List: '+message;
   }
   ngOnInit(): void {
-    console.log("Oninit is on");
+    this.items=this.itemService.getItems();
+    this.filteredItems=this.items;
 
   }
 
