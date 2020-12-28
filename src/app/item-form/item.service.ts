@@ -1,62 +1,39 @@
 import {Injectable} from '@angular/core';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {Observable, throwError} from 'rxjs';
+import {catchError, tap} from 'rxjs/operators';
+
+
 import {Iitem} from "./item";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService{
-    getItems(): Iitem[]{
-        return [
-            {
-                "itemId": 1,
-                "itemName": "Leather Gloves",
-                "room": "basement",
-                "place": "closet",
-                "updateDate": "March 19, 2020",
-                "description": "bought at Costco",
-                "quantity": 2,
-                "starRating": 3
-              },
-              {
-                "itemId": 2,
-                "itemName": "fiber towels",
-                "room": "basement",
-                "place": "ledder",
-                "updateDate": "March 19, 2020",
-                "description": "used",
-                "quantity": 3,
-                "starRating": 4
-              },
-                {
-                "itemId": 3,
-                "itemName": "head lamp",
-                "room": "garage",
-                "place": "board",
-                "updateDate": "October 19, 2020",
-                "description": "new",
-                "quantity": 1,
-                "starRating": 5
-              },
-                {
-                "itemId": 4,
-                "itemName": "head lamp",
-                "room": "basement",
-                "place": "board",
-                "updateDate": "October 19, 2020",
-                "description": "new",
-                "quantity": 2,
-                "starRating": 2
-              },
-              {
-                "itemId": 5,
-                "itemName": "power drill",
-                "room": "basement",
-                "place": "workbench",
-                "updateDate": "December 19, 2020",
-                "description": "DeWalt",
-                "quantity": 1,
-                "starRating": 2
-              }
-        ];
+    private itemUrl='api/items/items.json';
+    constructor(private http: HttpClient){}
+
+    getItems(): Observable<Iitem[]>{
+        return this.http.get<Iitem[]>(this.itemUrl).pipe(
+          tap(data=>console.log('All:'+JSON.stringify(data))),
+          catchError(this.handleError)
+        );
+    }
+
+    
+    private handleError(err: HttpErrorResponse): Observable<never> {
+      // in a real world app, we may send the server to some remote logging infrastructure
+      // instead of just logging it to the console
+      let errorMessage = '';
+      if (err.error instanceof ErrorEvent) {
+        // A client-side or network error occurred. Handle it accordingly.
+        errorMessage = `An error occurred: ${err.error.message}`;
+      } else {
+        // The backend returned an unsuccessful response code.
+        // The response body may contain clues as to what went wrong,
+        errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
+      }
+      console.error(errorMessage);
+      return throwError(errorMessage);
     }
 }

@@ -11,6 +11,8 @@ import {ItemService} from './item.service';
 export class ItemFormComponent implements OnInit {
   pageTitle: string='Items:';
   _listFilter='';
+  errorMessage='';
+
   
 
   get listFilter(): string {
@@ -40,8 +42,14 @@ export class ItemFormComponent implements OnInit {
     this.pageTitle='Item List: '+message;
   }
   ngOnInit(): void {
-    this.items=this.itemService.getItems();
-    this.filteredItems=this.items;
+    this.itemService.getItems().subscribe({
+      next: items=>{
+        this.items=items;
+        this.filteredItems=this.items;
+      },
+      error: err=> this.errorMessage=err
+    
+    });
 
   }
 
