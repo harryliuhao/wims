@@ -17,7 +17,11 @@ import { WelcomeComponent } from './home/welcome.component';
     BrowserModule, 
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: ItemFormComponent },
+      { path: 'items', component: ItemFormComponent },
+      { path: 'items/:id', component: ItemDetailComponent },
+      { path: 'welcome', component: WelcomeComponent },
+      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+      { path: '**', redirectTo: 'welcome', pathMatch: 'full' },
     ]),
     ReactiveFormsModule,
     HttpClientModule,
