@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ItemFormComponent } from './item-form/item-form.component';
 import { StarComponent } from './shared/star.component';
+import { ItemDetailComponent } from './item-form/item-detail.component';
+import { WelcomeComponent } from './home/welcome.component';
 
 @NgModule({
   imports:      [ 
@@ -25,6 +27,8 @@ import { StarComponent } from './shared/star.component';
     TopBarComponent, 
     ItemFormComponent,
     StarComponent,
+    ItemDetailComponent,
+    WelcomeComponent,
    ],
   bootstrap:    [ AppComponent ]
 })
