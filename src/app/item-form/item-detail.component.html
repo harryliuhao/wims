@@ -1,5 +1,12 @@
 <div class='card' *ngIf='item'>
     <div class='card-header'>
-        {{pageTitle}+': '+item.itemName}
+        {{pageTitle+': '+item.itemName}}
+    </div>
+    <div class='card=footer'>
+        <button class='btn btn-outline-secondar'
+                (click)='onBack()' style='width:80px'>
+            <i class='fa fa-chevron-left'></i> Back
+
+        </button>
     </div>
 </div>    
