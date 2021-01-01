@@ -3,35 +3,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
-import { ItemFormComponent } from './item-form/item-form.component';
-import { StarComponent } from './shared/star.component';
-import { ItemDetailComponent } from './item-form/item-detail.component';
 import { WelcomeComponent } from './home/welcome.component';
+import { ItemModule } from './item-form/item.module';
 
 @NgModule({
   imports:      [ 
     BrowserModule, 
-    FormsModule,
     RouterModule.forRoot([
-      { path: 'items', component: ItemFormComponent },
-      { path: 'items/:id', component: ItemDetailComponent },
+
       { path: 'welcome', component: WelcomeComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' },
     ]),
     ReactiveFormsModule,
     HttpClientModule,
+    ItemModule,
      ],
   declarations: [ 
     AppComponent, 
     TopBarComponent, 
-    ItemFormComponent,
-    StarComponent,
-    ItemDetailComponent,
+
     WelcomeComponent,
    ],
   bootstrap:    [ AppComponent ]
