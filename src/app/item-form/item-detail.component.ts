@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
 import { Iitem } from './item';
+import {ItemService} from './item.service';
 
 @Component({
 
@@ -10,28 +11,30 @@ import { Iitem } from './item';
 })
 export class ItemDetailComponent implements OnInit {
   pageTitle: string='Item Detail';
+  errorMessage = '';
   item: Iitem|undefined;
 
+
   constructor(private route: ActivatedRoute,
-              private router: Router) { 
+              private router: Router,
+              private itemService: ItemService) { 
                 console.log(this.route.snapshot.paramMap.get('id'));
               }
 
   ngOnInit(): void{
-    let id=this.route.snapshot.paramMap.get('id');
-    this.pageTitle+=':> '+id;
-    this.item={
-      "itemId": 3,
-      "itemName": "head lamp",
-      "room": "garage",
-      "place": "board",
-      "updateDate": "October 19, 2020",
-      "description": "new",
-      "quantity": 1,
-      "starRating": 5
+    const param = this.route.snapshot.paramMap.get('id');
+    if (param) {
+      const id = +param;
+      this.getItem(id);
     }
   }
 
+  getItem(id: number): void {
+    this.itemService.getItem(id).subscribe({
+      next: item => this.item = item,
+      error: err => this.errorMessage = err
+    });
+  }
   onBack(): void{
     this.router.navigate(['/items']);
   }

@@ -2,6 +2,42 @@
     <div class='card-header'>
         {{pageTitle+': '+item.itemName}}
     </div>
+
+    <div class='card-body'>
+        <div class='row'>
+          <div class='col-md-8'>
+            <div class='row'>
+              <div class='col-md-4'>Name:</div>
+              <div class='col-md-8'>{{item.itemName}}</div>
+            </div>
+            <div class='row'>
+              <div class='col-md-4'>Room:</div>
+              <div class='col-md-8'>{{item.room | lowercase }}</div>
+            </div>
+            <div class='row'>
+              <div class='col-md-4'>Location in the room:</div>
+              <div class='col-md-8'>{{item.place}}</div>
+            </div>
+            <div class='row'>
+              <div class='col-md-4'>Description:</div>
+              <div class='col-md-8'>{{item.description}}</div>
+            </div>
+            <div class='row'>
+              <div class='col-md-4'>Quantity:</div>
+              <div class='col-md-8'>{{item.quantity}}</div>
+            </div>
+            <div class='row'>
+              <div class='col-md-4'>5 Star Rating:</div>
+              <div class='col-md-8'>
+                <pm-star [rating]='item.starRating'>
+                </pm-star>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     <div class='card=footer'>
         <button class='btn btn-outline-secondar'
                 (click)='onBack()' style='width:80px'>
