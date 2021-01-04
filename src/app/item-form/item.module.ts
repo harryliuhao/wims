@@ -4,6 +4,7 @@ import { ItemFormComponent } from './item-form.component';
 import { RouterModule } from '@angular/router';
 import { ItemDetailGuard } from './item-detail.guard';
 import { SharedModule } from '../shared/shared.module';
+import { ItemInputComponent } from './item-input.component';
 
 
 
@@ -11,6 +12,7 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     ItemFormComponent,
     ItemDetailComponent,
+    ItemInputComponent,
   ],
   imports: [
     RouterModule.forChild([
