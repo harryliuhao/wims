@@ -17,6 +17,7 @@ import { ItemInputComponent } from './item-input.component';
   imports: [
     RouterModule.forChild([
       { path: 'items', component: ItemFormComponent },
+      { path: 'item-input', component: ItemInputComponent },
       { 
         path: 'items/:id', 
         canActivate: [ItemDetailGuard],
