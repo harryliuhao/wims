@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ItemService} from './item.service';
+import {UserSettings} from '../data/user-settings';
 
 @Component({
   selector: 'app-item-input',
@@ -7,7 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemInputComponent implements OnInit {
 
-  constructor() { }
+  userSettings: UserSettings={
+    itemName: 'plant food',
+    itemRoom: 'garage',
+    whereInRoom: 'rack',
+    itemUnit: 1
+  };
+  
+  constructor(private itemService: ItemService) {
+    
+  }
 
   ngOnInit(): void {
   }

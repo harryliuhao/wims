@@ -1,4 +1,30 @@
-<form>
-    <input placeholder="Item Name">
+<form #form="ngForm">
+    <div class="mb-3">
+        <label for="itemName" class="form-label">Item Name</label>
+        <input type="email" class="form-control" id="itemName" name="itemName" placeholder="Item Name" [(ngModel)]="userSettings.itemName">
+    </div>
+
+    <div class="mb-3">
+        <label for="roomList" class="form-label">Room</label>
+        <input class="form-control" list="datalistOptions" id="roomList" name="roomList" placeholder="Room..." [(ngModel)]="userSettings.itemRoom">
+        <datalist id="datalistOptions">
+            <option value="Garage">
+            <option value="Basement">
+            <option value="Attic">
+            <option value="Shed">
+        </datalist>
+    </div>
+
+    <div class="mb-3">
+        <label for="whereInRoom" class="form-label">Where in the Room</label>
+        <input type="email" class="form-control" id="whereInRoom" name="whereInRoom" placeholder="Where in the Room" [(ngModel)]="userSettings.whereInRoom">
+    </div>
+    
+    <div class="mb-3">
+        <label for="itemUnit" class="form-label">Units</label>
+        <input type="email" class="form-control" id="itemUnit" name="itemUnit" placeholder="Units" [(ngModel)]="userSettings.itemUnit">
+    </div>
     <button>OK</button>
+
 </form>
+{{ form.value | json }}

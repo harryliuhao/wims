@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 
+
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { WelcomeComponent } from './home/welcome.component';
@@ -20,6 +21,7 @@ import { ItemModule } from './item-form/item.module';
     ]),
     ReactiveFormsModule,
     HttpClientModule,
+ 
     ItemModule,
      ],
   declarations: [ 
