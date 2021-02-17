@@ -10,7 +10,7 @@ import {UserSettings} from '../data/user-settings';
 export class ItemInputComponent implements OnInit {
 
   userSettings: UserSettings={
-    itemName: 'plant food',
+    itemName: '',
     itemRoom: 'garage',
     whereInRoom: 'rack',
     itemUnit: 1
