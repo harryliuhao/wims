@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ItemService} from './item.service';
 import {UserSettings} from '../data/user-settings';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-item-input',
@@ -23,4 +24,10 @@ export class ItemInputComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(form: NgForm) {
+    console.log('onSubmit status: ', form.valid);
+  }
+  onBlur(field: NgModel) {
+    console.log('onBlur status: ', field.valid);
+  }
 }
