@@ -10,6 +10,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { ItemModule } from './item-form/item.module';
 
+
 @NgModule({
   imports:      [ 
     BrowserModule, 
@@ -21,8 +22,7 @@ import { ItemModule } from './item-form/item.module';
     ]),
     ReactiveFormsModule,
     HttpClientModule,
- 
-    ItemModule,
+    ItemModule
      ],
   declarations: [ 
     AppComponent, 

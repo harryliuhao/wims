@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StarComponent } from './star.component';
 import { FormsModule } from '@angular/forms';
-
+import {ButtonsModule} from 'ngx-bootstrap/buttons';
 
 
 @NgModule({
@@ -11,7 +11,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ButtonsModule
   ],
   exports: [
     StarComponent,
