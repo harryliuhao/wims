@@ -6,7 +6,10 @@ import { ItemDetailGuard } from './item-detail.guard';
 import { SharedModule } from '../shared/shared.module';
 import { ItemInputComponent } from './item-input.component';
 
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
+//strangely, the buttonsModule has to be in the direct module to work. it doesn't work in the shared moduel
+//this may be a limitation of the third-party package
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { ItemInputComponent } from './item-input.component';
         component: ItemDetailComponent 
       },
     ]),
-    SharedModule
+    SharedModule,
+    ButtonsModule,
+
   ]
 })
 export class ItemModule { }

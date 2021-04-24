@@ -3,4 +3,5 @@ export interface UserSettings {
     itemRoom: string;
     whereInRoom: string;
     itemUnit: number;
+    itemSize: string
 }

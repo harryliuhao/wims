@@ -10,10 +10,25 @@
         </div>
 
     </div>
-
+    <div class="btn-group">
+        <label class="btn btn-primary form-control" [(ngModel)]="userSettings.itemSize" name="itemSize" btnRadio="Small" tabindex="0" role="button">Small</label>
+        <label class="btn btn-primary form-control" [(ngModel)]="userSettings.itemSize" name="itemSize" btnRadio="Medium" tabindex="0" role="button">Medium</label>
+        <label class="btn btn-primary form-control" [(ngModel)]="userSettings.itemSize" name="itemSize" btnRadio="Large" tabindex="0" role="button">Large</label>
+      </div>
     <h3> 
 
     </h3>    
+    <div>
+        <pre class="card card-block card-header">{{cbutton}}</pre>
+        <button type="button" class="btn btn-primary" name="cbutton"
+        [(ngModel)]="cbutton"  btnCheckbox
+        >
+        {{cbutton}}
+        </button>
+    </div>
+
+
+
     <div class="mb-3">
         <label for="roomList" class="form-label">Room</label>
         <input class="form-control" list="datalistOptions" id="roomList" name="roomList" placeholder="Room..." [(ngModel)]="userSettings.itemRoom">
@@ -35,7 +50,13 @@
         <input type="number" class="form-control" id="itemUnit" name="itemUnit" placeholder="Units" 
         [(ngModel)]="userSettings.itemUnit" type="number" min="1">
     </div>
+    <div [hidden]="!postError" class="alert alert-danger">
+        {{postErrorMessage}}
+
+    </div>
     <button>OK</button>
+
+
 
 </form>
 {{ form.value | json }}
